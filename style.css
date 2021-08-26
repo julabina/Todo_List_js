@@ -120,12 +120,17 @@ h1 {
 
 .delete {
   margin-right: 10px;
-  border: black solid 1px;
+  border: black solid 2px;
   height: 20px;
   width: 20px;
   min-height: 20px;
   min-width: 20px;
   text-align: center;
-  line-height: 20px;
+  line-height: 18px;
   white-space: nowrap;
+  font-weight: bold;
+}
+
+.delete:hover {
+  cursor: pointer;
 }

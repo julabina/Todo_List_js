@@ -3,8 +3,7 @@ const todoNewBtn = document.getElementById("newTaskBtn");
 const listContainer = document.getElementById("listContainer");
 const select = document.getElementById("deleteChoice");
 const eraseBtn = document.getElementById("eraseContainerDeleteBtn");
-/* const deleteBtn = document.querySelector(".delete"); */
-
+const deleteBtn = document.querySelector(".delete");
 let valid;
 
 const errorCheck = () => {
@@ -40,14 +39,14 @@ const erase = () => {
   const checkOrNot = document.querySelectorAll(".checkbox");
 
   if (select.value === "1") {
-    for (let i = 0; i < del.length; i++) {
-      del[i].remove();
-    }
-  } else if (select.value === "2") {
     for (i = 0; i < checkOrNot.length; i++) {
       if (checkOrNot[i].checked) {
         del[i].remove();
       }
+    }
+  } else if (select.value === "2") {
+    for (let i = 0; i < del.length; i++) {
+      del[i].remove();
     }
   } else {
     for (i = 0; i < checkOrNot.length; i++) {
