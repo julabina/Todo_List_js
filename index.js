@@ -1,7 +1,9 @@
 const todoInputText = document.getElementById("textInput");
 const todoNewBtn = document.getElementById("newTaskBtn");
 const listContainer = document.getElementById("listContainer");
-const deleteBtn = document.querySelector(".delete");
+const select = document.getElementById("deleteChoice");
+const eraseBtn = document.getElementById("eraseContainerDeleteBtn");
+/* const deleteBtn = document.querySelector(".delete"); */
 
 let valid;
 
@@ -22,16 +24,42 @@ const emptyInput = () => {
 };
 
 const addTodo = () => {
+  let todoContainerId = Date.now();
+
   listContainer.innerHTML += `
-    <div class="todoContainer">
-                    <input type="checkbox" name="" id="check" class="checkbox">
-                    <p class="todoText">${todoInputText.value}</p>
-                    <p class="delete">X</p>
-                </div>
+    <div class="todoContainer" id="${todoContainerId}">
+        <input type="checkbox" name="checkTodo" id="check${todoContainerId}" class="checkbox">
+        <p class="todoText">${todoInputText.value}</p>
+        <p class="delete" id="delete${todoInputText.value}">X</p>
+    </div>
     `;
 };
 
-todoNewBtn.addEventListener("click", () => {
+const erase = () => {
+  const del = document.querySelectorAll(".todoContainer");
+  const checkOrNot = document.querySelectorAll(".checkbox");
+
+  if (select.value === "1") {
+    for (let i = 0; i < del.length; i++) {
+      del[i].remove();
+    }
+  } else if (select.value === "2") {
+    for (i = 0; i < checkOrNot.length; i++) {
+      if (checkOrNot[i].checked) {
+        del[i].remove();
+      }
+    }
+  } else {
+    for (i = 0; i < checkOrNot.length; i++) {
+      if (!checkOrNot[i].checked) {
+        del[i].remove();
+      }
+    }
+  }
+};
+
+todoNewBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   errorCheck();
   if (valid === true) {
     addTodo();
@@ -39,6 +67,11 @@ todoNewBtn.addEventListener("click", () => {
   }
 });
 
-deleteBtn.addEventListener("click", () => {
-  console.log("test3");
+eraseBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  erase();
 });
+
+/* deleteBtn.addEventListener("click", () => {
+  console.log("test3");
+}); */

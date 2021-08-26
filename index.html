@@ -18,11 +18,19 @@
                 <input id="newTaskBtn" type="button" value="new task">    
             </div>
             <span id="spanError" class="error">Cannot be empty</span>
+            <div class="eraseContainer">
+                <select name="delete" id="deleteChoice">
+                    <option value="1">All</option>
+                    <option value="2">Checked</option>
+                    <option value="3">Unchecked</option>
+                </select>    
+                <input type="button" value="delete" id="eraseContainerDeleteBtn">
+            </div>
             <section id="listContainer">
-                <div class="todoContainer">
-                    <input type="checkbox" name="" id="check" class="checkbox firstTodo">
+                <div class="todoContainer" id="test">
+                    <input type="checkbox" name="check" id="check" class="checkbox">
                     <p class="todoText">test</p>
-                    <p class="delete">X</p>
+                    <p class="delete" id="delete">X</p>
                 </div>
             </section>
         </main>
