@@ -129,8 +129,14 @@ h1 {
   line-height: 18px;
   white-space: nowrap;
   font-weight: bold;
+  visibility: hidden;
 }
 
 .delete:hover {
   cursor: pointer;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
 }
